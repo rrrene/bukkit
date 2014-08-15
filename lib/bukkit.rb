@@ -1,5 +1,6 @@
 require 'bukkit/version'
 require_relative 'bukkit/achievement'
+require_relative 'bukkit/art'
 
 module Bukkit
 
