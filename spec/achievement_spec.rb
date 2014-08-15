@@ -132,6 +132,32 @@ describe Bukkit::Achievement do
       end
     end
   end
+
+  context '#hasParent' do
+    before :each do
+      @java_alias = @initialized.hasParent
+      @ruby_origin = @initialized.parent?
+    end
+
+    it do
+      expect(@java_alias).to_not be_nil
+    end
+
+    it do
+      expect(@java_alias).to be @ruby_origin
+    end
+  end
+
+  context '#getParent' do
+    before :each do
+      @java_alias = @initialized.getParent
+      @ruby_origin = @initialized.parent
+    end
+
+    it do
+      expect(@java_alias).to be @ruby_origin
+    end
+  end
 end
 
 describe Bukkit::Achievement::OpenInventory do

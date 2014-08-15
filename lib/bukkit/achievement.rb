@@ -33,6 +33,12 @@ module Bukkit
       @parent
     end
 
+    # Alias matching the original Bukkit API spec.
+    alias_method :hasParent, :parent?
+
+    # Alias matching the original Bukkit API spec.
+    alias_method :getParent, :parent
+
     class OpenInventory < Bukkit::Achievement; end
 
     class MineWood < Achievement
