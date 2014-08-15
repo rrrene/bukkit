@@ -1,8 +1,8 @@
 # Bukkit
 
-[![travis.ci Build](http://img.shields.io/travis/MinecraftRuby/bukkit.svg?style=flat)](https://travis-ci.org/MinecraftRuby/bukkit)
-
-[![Coveralls](http://img.shields.io/codeclimate/coverage/github/MinecraftRuby/bukkit.svg?style=flat)](https://coveralls.io/r/MinecraftRuby/bukkit)
+[![travis.ci Continuous Integration](http://img.shields.io/travis/MinecraftRuby/bukkit.svg?style=flat-square)](https://travis-ci.org/MinecraftRuby/bukkit)
+[![Code Climate GPA](http://img.shields.io/codeclimate/github/kabisaict/flow.svg?style=flat-square)](https://codeclimate.com/github/MinecraftRuby/bukkit)
+[![Coveralls Test Coverage](http://img.shields.io/coveralls/MinecraftRuby/bukkit.svg?style=flat-square)](https://coveralls.io/r/MinecraftRuby/bukkit)
 
 A backwards compatible Bukkit API written in Ruby.
 
