@@ -147,10 +147,40 @@ describe Bukkit::Achievement do
     end
   end
 
+  context '#has_parent' do
+    before :each do
+      @java_alias = @initialized.has_parent
+      @ruby_origin = @initialized.parent?
+    end
+
+    it do
+      expect(@java_alias).to_not be_nil
+    end
+
+    it do
+      expect(@java_alias).to be @ruby_origin
+    end
+  end
+
   context '#getParent' do
     before :each do
       @java_alias = @initialized.getParent
       @ruby_origin = @initialized.parent
+    end
+
+    it do
+      expect(@java_alias).to be @ruby_origin
+    end
+  end
+
+  context '#get_parent' do
+    before :each do
+      @java_alias = @initialized.get_parent
+      @ruby_origin = @initialized.parent?
+    end
+
+    it do
+      expect(@java_alias).to_not be_nil
     end
 
     it do
