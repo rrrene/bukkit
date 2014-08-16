@@ -1,4 +1,37 @@
+Dir[File.dirname(__FILE__) + '/art/**/*.rb'].each do |file|
+  load file
+end
+
 class Bukkit
+
+  ARTS = [
+      Bukkit::Art::Kebab,
+      Bukkit::Art::Aztec,
+      Bukkit::Art::Alban,
+      Bukkit::Art::Aztec2,
+      Bukkit::Art::Bomb,
+      Bukkit::Art::Plant,
+      Bukkit::Art::Wasteland,
+      Bukkit::Art::Pool,
+      Bukkit::Art::Courbet,
+      Bukkit::Art::Sea,
+      Bukkit::Art::Sunset,
+      Bukkit::Art::Creebet,
+      Bukkit::Art::Wanderer,
+      Bukkit::Art::Graham,
+      Bukkit::Art::Match,
+      Bukkit::Art::Bust,
+      Bukkit::Art::Stage,
+      Bukkit::Art::Void,
+      Bukkit::Art::SkullAndRoses,
+      Bukkit::Art::Wither,
+      Bukkit::Art::Fighters,
+      Bukkit::Art::Pointer,
+      Bukkit::Art::Pigscene,
+      Bukkit::Art::Burningskull,
+      Bukkit::Art::Skeleton,
+      Bukkit::Art::Donkeykong
+  ]
 
   # Represents the art on a painting
   class Art
@@ -36,162 +69,6 @@ class Bukkit
 
     # Alias matching the original Bukkit API spec.
     alias_method :get_block_height, :block_height
-
-    class Kebab < Art
-      def initialize
-        super 0, 1, 1
-      end
-    end
-
-    class Aztec < Art
-      def initialize
-        super 1, 1, 1
-      end
-    end
-
-    class Alban < Art
-      def initialize
-        super 2, 1, 1
-      end
-    end
-
-    class Aztec2 < Art
-      def initialize
-        super 3, 1, 1
-      end
-    end
-
-    class Bomb < Art
-      def initialize
-        super 4, 1, 1
-      end
-    end
-
-    class Plant < Art
-      def initialize
-        super 5, 1, 1
-      end
-    end
-
-    class Wasteland < Art
-      def initialize
-        super 6, 1, 1
-      end
-    end
-
-    class Pool < Art
-      def initialize
-        super 7, 2, 1
-      end
-    end
-
-    class Courbet < Art
-      def initialize
-        super 8, 2, 1
-      end
-    end
-
-    class Sea < Art
-      def initialize
-        super 9, 2, 1
-      end
-    end
-
-    class Sunset < Art
-      def initialize
-        super 10, 2, 1
-      end
-    end
-
-    class Creebet < Art
-      def initialize
-        super 11, 2, 1
-      end
-    end
-
-    class Wanderer < Art
-      def initialize
-        super 12, 1, 2
-      end
-    end
-
-    class Graham < Art
-      def initialize
-        super 13, 1, 2
-      end
-    end
-
-    class Match < Art
-      def initialize
-        super 14, 2, 2
-      end
-    end
-
-    class Bust < Art
-      def initialize
-        super 15, 2, 2
-      end
-    end
-
-    class Stage < Art
-      def initialize
-        super 16, 2, 2
-      end
-    end
-
-    class Void < Art
-      def initialize
-        super 17, 2, 2
-      end
-    end
-
-    class SkullAndRoses < Art
-      def initialize
-        super 18, 2, 2
-      end
-    end
-
-    class Wither < Art
-      def initialize
-        super 19, 2, 2
-      end
-    end
-
-    class Fighters < Art
-      def initialize
-        super 20, 4, 2
-      end
-    end
-
-    class Pointer < Art
-      def initialize
-        super 21, 4, 4
-      end
-    end
-
-    class Pigscene < Art
-      def initialize
-        super 22, 4, 4
-      end
-    end
-
-    class Burningskull < Art
-      def initialize
-        super 23, 4, 4
-      end
-    end
-
-    class Skeleton < Art
-      def initialize
-        super 24, 4, 3
-      end
-    end
-
-    class Donkeykong < Art
-      def initialize
-        super 25, 4, 3
-      end
-    end
 
   end
 
