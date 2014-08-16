@@ -1,7 +1,7 @@
 require 'spec_helper'
 require_relative '../lib/bukkit/achievement'
 
-describe Bukkit::ACHIEVEMENTS do
+describe 'Bukkit::ACHIEVEMENTS' do
   before :each do
     @achievements = Bukkit::ACHIEVEMENTS
   end
