@@ -464,7 +464,7 @@ describe Bukkit::Art do
   }
 
   art.each do |title, piece|
-    context "#by_name(#{title})" do
+    context "#by_name(#{title}) ## A String" do
       before :each do
         @found_art = @art.by_name(title)
       end
@@ -490,7 +490,33 @@ describe Bukkit::Art do
       end
     end
 
-    context "#getByName(#{title})" do
+    context "#by_name(#{title.to_sym}) ## A Non-String" do
+      before :each do
+        @found_art = @art.by_name(title.to_sym)
+      end
+
+      it do
+        expect(@found_art).to be
+      end
+
+      it do
+        expect(@found_art).to be_truthy
+      end
+
+      it do
+        expect(@found_art).to_not be_falsey
+      end
+
+      it do
+        expect(@found_art).to_not be_nil
+      end
+
+      it do
+        expect(@found_art).to be piece
+      end
+    end
+
+    context "#getByName(#{title}) ## A String" do
       before :each do
         @found_art = @art.getByName(title)
       end
@@ -516,7 +542,33 @@ describe Bukkit::Art do
       end
     end
 
-    context "#get_by_name(#{title})" do
+    context "#getByName(#{title.to_sym}) ## A Non-String" do
+      before :each do
+        @found_art = @art.getByName(title.to_sym)
+      end
+
+      it do
+        expect(@found_art).to be
+      end
+
+      it do
+        expect(@found_art).to be_truthy
+      end
+
+      it do
+        expect(@found_art).to_not be_falsey
+      end
+
+      it do
+        expect(@found_art).to_not be_nil
+      end
+
+      it do
+        expect(@found_art).to be piece
+      end
+    end
+
+    context "#get_by_name(#{title}) ## A String" do
       before :each do
         @found_art = @art.get_by_name(title)
       end
@@ -541,7 +593,35 @@ describe Bukkit::Art do
         expect(@found_art).to be piece
       end
     end
+
+    context "#get_by_name(#{title.to_sym}) ## A Non-String" do
+      before :each do
+        @found_art = @art.get_by_name(title.to_sym)
+      end
+
+      it do
+        expect(@found_art).to be
+      end
+
+      it do
+        expect(@found_art).to be_truthy
+      end
+
+      it do
+        expect(@found_art).to_not be_falsey
+      end
+
+      it do
+        expect(@found_art).to_not be_nil
+      end
+
+      it do
+        expect(@found_art).to be piece
+      end
+    end
   end
+
+
 end
 
 art = {
