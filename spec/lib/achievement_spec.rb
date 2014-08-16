@@ -338,9 +338,185 @@ achievements.each do |achievement, parent|
       end
     end
 
-    context 'parent' do
+    context '#has_parent' do
+      before :each do
+        @parent = @initialized.has_parent
+      end
+
+      it do
+        expect(@parent).to_not be_nil
+      end
+
+      if parent == nil
+        it do
+          expect(@parent).to_not be
+        end
+
+        it do
+          expect(@parent).to_not be_truthy
+        end
+
+        it do
+          expect(@parent).to be_falsey
+        end
+
+        it do
+          expect(@parent).to be false
+        end
+      else
+        it do
+          expect(@parent).to be
+        end
+
+        it do
+          expect(@parent).to be_truthy
+        end
+
+        it do
+          expect(@parent).to_not be_falsey
+        end
+
+        it do
+          expect(@parent).to be true
+        end
+      end
+    end
+
+    context '#hasParent' do
+      before :each do
+        @parent = @initialized.hasParent
+      end
+
+      it do
+        expect(@parent).to_not be_nil
+      end
+
+      if parent == nil
+        it do
+          expect(@parent).to_not be
+        end
+
+        it do
+          expect(@parent).to_not be_truthy
+        end
+
+        it do
+          expect(@parent).to be_falsey
+        end
+
+        it do
+          expect(@parent).to be false
+        end
+      else
+        it do
+          expect(@parent).to be
+        end
+
+        it do
+          expect(@parent).to be_truthy
+        end
+
+        it do
+          expect(@parent).to_not be_falsey
+        end
+
+        it do
+          expect(@parent).to be true
+        end
+      end
+    end
+
+    context '#parent' do
       before :each do
         @parent = @initialized.parent
+      end
+
+      if parent == nil
+        it do
+          expect(@parent).to_not be
+        end
+
+        it do
+          expect(@parent).to_not be_truthy
+        end
+
+        it do
+          expect(@parent).to be_falsey
+        end
+
+        it do
+          expect(@parent).to be_nil
+        end
+      else
+        it do
+          expect(@parent).to be
+        end
+
+        it do
+          expect(@parent).to be_truthy
+        end
+
+        it do
+          expect(@parent).to_not be_falsey
+        end
+
+        it do
+          expect(@parent).to_not be_nil
+        end
+
+        it do
+          expect(@parent).to be parent
+        end
+      end
+    end
+
+    context '#get_parent' do
+      before :each do
+        @parent = @initialized.get_parent
+      end
+
+      if parent == nil
+        it do
+          expect(@parent).to_not be
+        end
+
+        it do
+          expect(@parent).to_not be_truthy
+        end
+
+        it do
+          expect(@parent).to be_falsey
+        end
+
+        it do
+          expect(@parent).to be_nil
+        end
+      else
+        it do
+          expect(@parent).to be
+        end
+
+        it do
+          expect(@parent).to be_truthy
+        end
+
+        it do
+          expect(@parent).to_not be_falsey
+        end
+
+        it do
+          expect(@parent).to_not be_nil
+        end
+
+        it do
+          expect(@parent).to be parent
+        end
+      end
+    end
+
+    context '#getParent' do
+      before :each do
+        @parent = @initialized.getParent
       end
 
       if parent == nil
