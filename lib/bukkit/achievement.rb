@@ -76,8 +76,14 @@ class Bukkit
     # Alias matching the original Bukkit API spec.
     alias_method :hasParent, :parent?
 
+    # Alias matching the original Bukkit API spec in a more Ruby-like fashion.
+    alias_method :has_parent, :parent?
+
     # Alias matching the original Bukkit API spec.
     alias_method :getParent, :parent
+
+    # Alias matching the original Bukkit API spec in a more Ruby-like fashion.
+    alias_method :get_parent, :parent
 
   end
 
