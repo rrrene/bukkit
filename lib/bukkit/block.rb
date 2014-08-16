@@ -1,5 +1,5 @@
-Dir.foreach 'block' do |file|
-  require_relative file.to_s
+Dir[File.dirname(__FILE__) + '/block/**/*.rb'].each do |file|
+  require file
 end
 
 class Bukkit

@@ -1,6 +1,6 @@
-require 'bukkit/version'
-require_relative 'bukkit/achievement'
-require_relative 'bukkit/art'
+Dir[File.dirname(__FILE__) + '/bukkit/**/*.rb'].each do |file|
+  require file
+end
 
 class Bukkit
 
