@@ -1,4 +1,4 @@
-module Bukkut
+class Bukkut
 
   class Instrument
 

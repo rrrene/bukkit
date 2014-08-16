@@ -1,4 +1,4 @@
-module Bukkit
+class Bukkit
 
   # Represents the art on a painting
   class Art

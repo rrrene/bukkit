@@ -1,4 +1,4 @@
-module Bukkit
+class Bukkit
 
   # Represents an achievement, which may be given to players.
   class Achievement

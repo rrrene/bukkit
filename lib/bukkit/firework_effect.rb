@@ -1,4 +1,4 @@
-module Bukkit
+class Bukkit
 
   class FireworkEffect
 
