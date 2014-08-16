@@ -130,8 +130,8 @@ class Bukkit
     # Alias matching the original Bukkit API spec in a more Ruby-like fashion.
     alias_method :get_block_height, :height
 
-    def by_name(name)
-      unless name
+    def self.by_name(name)
+      if name
         name = name
         name = name.to_s unless name.is_a? String
         Bukkit::ARTS_BY_NAME[name.downcase.to_sym]
@@ -139,10 +139,14 @@ class Bukkit
     end
 
     # Alias matching the original Bukkit API spec.
-    alias_method :getByName, :by_name
+    def self.getByName(name)
+      self.by_name name
+    end
 
     # Alias matching the original Bukkit API spec in a more Ruby-like fashion.
-    alias_method :get_by_name, :by_name
+    def self.get_by_name(name)
+      self.by_name name
+    end
 
   end
 

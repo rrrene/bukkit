@@ -433,6 +433,63 @@ describe Bukkit::Art do
       end
     end
   end
+
+  art = {
+      'kebab' => Bukkit::Art::Kebab,
+      'aztec' => Bukkit::Art::Aztec,
+      'alban' => Bukkit::Art::Alban,
+      'aztec2' => Bukkit::Art::Aztec2,
+      'bomb' => Bukkit::Art::Bomb,
+      'plant' => Bukkit::Art::Plant,
+      'wasteland' => Bukkit::Art::Wasteland,
+      'pool' => Bukkit::Art::Pool,
+      'courbet' => Bukkit::Art::Courbet,
+      'sea' => Bukkit::Art::Sea,
+      'sunset' => Bukkit::Art::Sunset,
+      'creebet' => Bukkit::Art::Creebet,
+      'wanderer' => Bukkit::Art::Wanderer,
+      'graham' => Bukkit::Art::Graham,
+      'match' => Bukkit::Art::Match,
+      'bust' => Bukkit::Art::Bust,
+      'stage' => Bukkit::Art::Stage,
+      'void' => Bukkit::Art::Void,
+      'skullandroses' => Bukkit::Art::SkullAndRoses,
+      'wither' => Bukkit::Art::Wither,
+      'fighters' => Bukkit::Art::Fighters,
+      'pointer' => Bukkit::Art::Pointer,
+      'pigscene' => Bukkit::Art::Pigscene,
+      'burningskull' => Bukkit::Art::Burningskull,
+      'skeleton' => Bukkit::Art::Skeleton,
+      'donkeykong' => Bukkit::Art::Donkeykong
+  }
+
+  art.each do |title, piece|
+    context "#by_name(#{title})" do
+      before :each do
+        @found_art = @art.by_name(title)
+      end
+
+      it do
+        expect(@found_art).to be
+      end
+
+      it do
+        expect(@found_art).to be_truthy
+      end
+
+      it do
+        expect(@found_art).to_not be_falsey
+      end
+
+      it do
+        expect(@found_art).to_not be_nil
+      end
+
+      it do
+        expect(@found_art).to be piece
+      end
+    end
+  end
 end
 
 art = {
