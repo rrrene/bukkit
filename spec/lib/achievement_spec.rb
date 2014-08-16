@@ -294,12 +294,16 @@ achievements.each do |achievement, parent|
       end
     end
 
-    if parent == nil
-      context '#parent?' do
-        before :each do
-          @parent = @initialized.parent?
-        end
+    context '#parent?' do
+      before :each do
+        @parent = @initialized.parent?
+      end
 
+      it do
+        expect(@parent).to_not be_nil
+      end
+
+      if parent == nil
         it do
           expect(@parent).to_not be
         end
@@ -313,19 +317,9 @@ achievements.each do |achievement, parent|
         end
 
         it do
-          expect(@parent).to_not be_nil
-        end
-
-        it do
           expect(@parent).to be false
         end
-      end
-    else
-      context '#parent?' do
-        before :each do
-          @parent = @initialized.parent?
-        end
-
+      else
         it do
           expect(@parent).to be
         end
@@ -339,21 +333,17 @@ achievements.each do |achievement, parent|
         end
 
         it do
-          expect(@parent).to_not be_nil
-        end
-
-        it do
           expect(@parent).to be true
         end
       end
     end
 
-    if parent == nil
-      context 'parent' do
-        before :each do
-          @parent = @initialized.parent
-        end
+    context 'parent' do
+      before :each do
+        @parent = @initialized.parent
+      end
 
+      if parent == nil
         it do
           expect(@parent).to_not be
         end
@@ -369,13 +359,7 @@ achievements.each do |achievement, parent|
         it do
           expect(@parent).to be_nil
         end
-      end
-    else
-      context 'parent' do
-        before :each do
-          @parent = @initialized.parent
-        end
-
+      else
         it do
           expect(@parent).to be
         end
