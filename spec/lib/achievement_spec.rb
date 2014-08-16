@@ -132,6 +132,34 @@ describe Bukkit::Achievement do
     end
   end
 
+  context '#parent?' do
+    context 'when no parent defined' do
+      before :each do
+        @parent = @initialized.parent?
+      end
+
+      it do
+        expect(@parent).to_not be
+      end
+
+      it do
+        expect(@parent).to_not be_truthy
+      end
+
+      it do
+        expect(@parent).to be_falsey
+      end
+
+      it do
+        expect(@parent).to_not be_nil
+      end
+
+      it do
+        expect(@parent).to be false
+      end
+    end
+  end
+
   context '#hasParent' do
     before :each do
       @java_alias = @initialized.hasParent
@@ -176,11 +204,7 @@ describe Bukkit::Achievement do
   context '#get_parent' do
     before :each do
       @java_alias = @initialized.get_parent
-      @ruby_origin = @initialized.parent?
-    end
-
-    it do
-      expect(@java_alias).to_not be_nil
+      @ruby_origin = @initialized.parent
     end
 
     it do
