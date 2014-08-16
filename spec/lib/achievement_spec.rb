@@ -212,3 +212,190 @@ describe Bukkit::Achievement do
     end
   end
 end
+
+achievements = {
+    Bukkit::Achievement::OpenInventory => nil,
+    Bukkit::Achievement::MineWood => Bukkit::Achievement::OpenInventory,
+    Bukkit::Achievement::BuildWorkbench => Bukkit::Achievement::MineWood,
+    Bukkit::Achievement::BuildPickaxe => Bukkit::Achievement::BuildWorkbench,
+    Bukkit::Achievement::BuildFurnace => Bukkit::Achievement::BuildPickaxe,
+    Bukkit::Achievement::AcquireIron => Bukkit::Achievement::BuildFurnace,
+    Bukkit::Achievement::BuildHoe => Bukkit::Achievement::BuildWorkbench,
+    Bukkit::Achievement::MakeBread => Bukkit::Achievement::BuildHoe,
+    Bukkit::Achievement::BakeCake => Bukkit::Achievement::BuildHoe,
+    Bukkit::Achievement::BuildBetterPickaxe => Bukkit::Achievement::BuildPickaxe,
+    Bukkit::Achievement::CookFish => Bukkit::Achievement::BuildFurnace,
+    Bukkit::Achievement::OnARail => Bukkit::Achievement::AcquireIron,
+    Bukkit::Achievement::BuildSword => Bukkit::Achievement::BuildWorkbench,
+    Bukkit::Achievement::KillEnemy => Bukkit::Achievement::BuildSword,
+    Bukkit::Achievement::KillCow => Bukkit::Achievement::BuildSword,
+    Bukkit::Achievement::FlyPig => Bukkit::Achievement::KillCow,
+    Bukkit::Achievement::SnipeSkeleton => Bukkit::Achievement::KillEnemy,
+    Bukkit::Achievement::GetDiamonds => Bukkit::Achievement::AcquireIron,
+    Bukkit::Achievement::NetherPortal => Bukkit::Achievement::GetDiamonds,
+    Bukkit::Achievement::GhastReturn => Bukkit::Achievement::NetherPortal,
+    Bukkit::Achievement::GetBlazeRod => Bukkit::Achievement::NetherPortal,
+    Bukkit::Achievement::BrewPotion => Bukkit::Achievement::GetBlazeRod,
+    Bukkit::Achievement::EndPortal => Bukkit::Achievement::GetBlazeRod,
+    Bukkit::Achievement::TheEnd => Bukkit::Achievement::EndPortal,
+    Bukkit::Achievement::Enchantments => Bukkit::Achievement::GetDiamonds,
+    Bukkit::Achievement::Overkill => Bukkit::Achievement::Enchantments,
+    Bukkit::Achievement::Bookcase => Bukkit::Achievement::Enchantments,
+    Bukkit::Achievement::ExploreAllBiomes => Bukkit::Achievement::EndPortal,
+    Bukkit::Achievement::SpawnWither => Bukkit::Achievement::TheEnd,
+    Bukkit::Achievement::KillWither => Bukkit::Achievement::SpawnWither,
+    Bukkit::Achievement::FullBeacon => Bukkit::Achievement::KillWither,
+    Bukkit::Achievement::BreedCow => Bukkit::Achievement::KillCow,
+    Bukkit::Achievement::DiamondsToYou => Bukkit::Achievement::GetDiamonds
+}
+
+achievements.each do |achievement, parent|
+  describe achievement do
+    before :each do
+      @achievement = achievement
+      @initialized = @achievement.new
+    end
+
+    it do
+      expect(@achievement).to be
+    end
+
+    it do
+      expect(@achievement).to be_truthy
+    end
+
+    it do
+      expect(@achievement).to_not be_falsey
+    end
+
+    it do
+      expect(@achievement).to_not be_nil
+    end
+
+    it do
+      expect(@achievement.new).to be_a Bukkit::Achievement
+    end
+
+    context '#new' do
+      it do
+        expect(@initialized).to be
+      end
+
+      it do
+        expect(@initialized).to be_truthy
+      end
+
+      it do
+        expect(@initialized).to_not be_falsey
+      end
+
+      it do
+        expect(@initialized).to_not be_nil
+      end
+    end
+
+    if parent == nil
+      context '#parent?' do
+        before :each do
+          @parent = @initialized.parent?
+        end
+
+        it do
+          expect(@parent).to_not be
+        end
+
+        it do
+          expect(@parent).to_not be_truthy
+        end
+
+        it do
+          expect(@parent).to be_falsey
+        end
+
+        it do
+          expect(@parent).to_not be_nil
+        end
+
+        it do
+          expect(@parent).to be false
+        end
+      end
+    else
+      context '#parent?' do
+        before :each do
+          @parent = @initialized.parent?
+        end
+
+        it do
+          expect(@parent).to be
+        end
+
+        it do
+          expect(@parent).to be_truthy
+        end
+
+        it do
+          expect(@parent).to_not be_falsey
+        end
+
+        it do
+          expect(@parent).to_not be_nil
+        end
+
+        it do
+          expect(@parent).to be true
+        end
+      end
+    end
+
+    if parent == nil
+      context 'parent' do
+        before :each do
+          @parent = @initialized.parent
+        end
+
+        it do
+          expect(@parent).to_not be
+        end
+
+        it do
+          expect(@parent).to_not be_truthy
+        end
+
+        it do
+          expect(@parent).to be_falsey
+        end
+
+        it do
+          expect(@parent).to be_nil
+        end
+      end
+    else
+      context 'parent' do
+        before :each do
+          @parent = @initialized.parent
+        end
+
+        it do
+          expect(@parent).to be
+        end
+
+        it do
+          expect(@parent).to be_truthy
+        end
+
+        it do
+          expect(@parent).to_not be_falsey
+        end
+
+        it do
+          expect(@parent).to_not be_nil
+        end
+
+        it do
+          expect(@parent).to be parent
+        end
+      end
+    end
+  end
+end
