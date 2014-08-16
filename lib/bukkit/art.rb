@@ -33,6 +33,64 @@ class Bukkit
       Bukkit::Art::Donkeykong
   ]
 
+  ARTS_BY_ID = {
+      0 => Bukkit::Art::Kebab,
+      1 => Bukkit::Art::Aztec,
+      2 => Bukkit::Art::Alban,
+      3 => Bukkit::Art::Aztec2,
+      4 => Bukkit::Art::Bomb,
+      5 => Bukkit::Art::Plant,
+      6 => Bukkit::Art::Wasteland,
+      7 => Bukkit::Art::Pool,
+      8 => Bukkit::Art::Courbet,
+      9 => Bukkit::Art::Sea,
+      10 => Bukkit::Art::Sunset,
+      11 => Bukkit::Art::Creebet,
+      12 => Bukkit::Art::Wanderer,
+      13 => Bukkit::Art::Graham,
+      14 => Bukkit::Art::Match,
+      15 => Bukkit::Art::Bust,
+      16 => Bukkit::Art::Stage,
+      17 => Bukkit::Art::Void,
+      18 => Bukkit::Art::SkullAndRoses,
+      19 => Bukkit::Art::Wither,
+      20 => Bukkit::Art::Fighters,
+      21 => Bukkit::Art::Pointer,
+      22 => Bukkit::Art::Pigscene,
+      23 => Bukkit::Art::Burningskull,
+      24 => Bukkit::Art::Skeleton,
+      25 => Bukkit::Art::Donkeykong
+  }
+
+  ARTS_BY_NAME = {
+      :kebab => Bukkit::Art::Kebab,
+      :aztec => Bukkit::Art::Aztec,
+      :alban => Bukkit::Art::Alban,
+      :aztec2 => Bukkit::Art::Aztec2,
+      :bomb => Bukkit::Art::Bomb,
+      :plant => Bukkit::Art::Plant,
+      :wasteland => Bukkit::Art::Wasteland,
+      :pool => Bukkit::Art::Pool,
+      :courbet => Bukkit::Art::Courbet,
+      :sea => Bukkit::Art::Sea,
+      :sunset => Bukkit::Art::Sunset,
+      :creebet => Bukkit::Art::Creebet,
+      :wanderer => Bukkit::Art::Wanderer,
+      :graham => Bukkit::Art::Graham,
+      :match => Bukkit::Art::Match,
+      :bust => Bukkit::Art::Bust,
+      :stage => Bukkit::Art::Stage,
+      :void => Bukkit::Art::Void,
+      :skullandroses => Bukkit::Art::SkullAndRoses,
+      :wither => Bukkit::Art::Wither,
+      :fighters => Bukkit::Art::Fighters,
+      :pointer => Bukkit::Art::Pointer,
+      :pigscene => Bukkit::Art::Pigscene,
+      :burningskull => Bukkit::Art::Burningskull,
+      :skeleton => Bukkit::Art::Skeleton,
+      :donkeykong => Bukkit::Art::Donkeykong
+  }
+
   # Represents the art on a painting
   class Art
 
@@ -42,33 +100,49 @@ class Bukkit
       @id = id
       @width = width
       @height = height
+
+      self
     end
 
     # Gets the width of the painting, in blocks
     #
     # @return [Integer] The width of the painting, in blocks
-    def block_width
+    def width
       @width
     end
 
     # Alias matching the original Bukkit API spec.
-    alias_method :getBlockWidth, :block_width
+    alias_method :getBlockWidth, :width
 
-    # Alias matching the original Bukkit API spec.
-    alias_method :get_block_width, :block_width
+    # Alias matching the original Bukkit API spec in a more Ruby-like fashion.
+    alias_method :get_block_width, :width
 
     # Gets the height of the painting, in blocks
     #
     # @return [Integer] The height of the painting, in blocks
-    def block_height
+    def height
       @height
     end
 
     # Alias matching the original Bukkit API spec.
-    alias_method :getBlockHeight, :block_height
+    alias_method :getBlockHeight, :height
+
+    # Alias matching the original Bukkit API spec in a more Ruby-like fashion.
+    alias_method :get_block_height, :height
+
+    def by_name(name)
+      unless name
+        name = name
+        name = name.to_s unless name.is_a? String
+        Bukkit::ARTS_BY_NAME[name.downcase.to_sym]
+      end
+    end
 
     # Alias matching the original Bukkit API spec.
-    alias_method :get_block_height, :block_height
+    alias_method :getByName, :by_name
+
+    # Alias matching the original Bukkit API spec in a more Ruby-like fashion.
+    alias_method :get_by_name, :by_name
 
   end
 
